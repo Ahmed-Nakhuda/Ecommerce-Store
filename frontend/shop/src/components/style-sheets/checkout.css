@@ -1,0 +1,98 @@
+.accordion {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+}
+
+#checkoutForm .formGroup .textbox {
+    width: 50%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+
+#checkoutForm .formGroup .textbox {
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+
+#checkoutForm .formGroup {
+    margin-top: 2%;
+}
+
+#firstName, #lastName {
+    margin-left: 4.8%;
+}
+
+
+#address {
+    margin-left: 7.8%;
+}
+
+#email {
+    margin-left: 10.7%;
+}
+
+#city {
+    margin-left: 13%;
+}
+
+#province {
+    margin-left: 8%;
+}
+
+#cardNumber {
+    margin-left: 2%;
+}
+
+#securityCode {
+    margin-left: 1.5%;
+}
+
+#nameOnCard {
+    margin-left: 1%;
+}
+
+.formGroup .datePicker {
+    margin-left: 10%;
+}
+
+#checkoutForm .formGroup .securityCodeTextbox {
+    width: 15%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+
+
+#checkoutForm .formGroup #city .citySelect {
+   width: 50px;
+}
+
+#checkoutForm .formGroup .selectContainer{
+   display: flex;
+}
+
+#placeOrderButton {
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    /* background-color: #0ac511; */
+    font-weight: bold;
+    color: black;
+    margin-left: 43%;
+}
+
+
+#continueButton {
+    margin-top: 4%;
+    margin-bottom: 2%;
+    padding: 2%;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 35%;
+}
