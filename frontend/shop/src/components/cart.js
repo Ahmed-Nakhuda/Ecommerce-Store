@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './style-sheets/cart.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./style-sheets/cart.css";
 import { IoCloseSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
@@ -10,12 +10,12 @@ function Cart() {
 
   // Function to fetch cart items from server
   const fetchCartItems = () => {
-    axios.get('http://localhost:3001/api')
+    axios.get("http://localhost:3001/api")
       .then(response => {
         setCartItems(response.data);
       })
       .catch(error => {
-        console.error('Error fetching cart items:', error);
+        console.error("Error fetching cart items:", error);
       });
   };
 
@@ -28,7 +28,7 @@ function Cart() {
         fetchCartItems(); // Fetch updated cart items after deletion
       })
       .catch(error => {
-        console.error('Error deleting cart item:', error);
+        console.error("Error deleting cart item:", error);
       });
   };
 
@@ -47,10 +47,10 @@ function Cart() {
     // Update quantity in the database
     axios.post(`http://localhost:3001/api/${id}`, { quantity: updatedCartItems.find(item => item.id === id).quantity })
       .then(response => {
-        console.log(response.data.message); 
+        console.log(response.data.message);
       })
       .catch(error => {
-        console.error('Error increasing quantity:', error); 
+        console.error("Error increasing quantity:", error);
       });
   };
 
@@ -68,10 +68,10 @@ function Cart() {
     // Update quantity in the database
     axios.post(`http://localhost:3001/api/${id}`, { quantity: updatedCartItems.find(item => item.id === id).quantity })
       .then(response => {
-        console.log(response.data.message); // Log success message
+        console.log(response.data.message);
       })
       .catch(error => {
-        console.error('Error decreasing quantity:', error); // Log error message
+        console.error("Error decreasing quantity:", error);
       });
   };
 
@@ -91,8 +91,8 @@ function Cart() {
 
   return (
     <div>
-      <div className='gridContainer'>
-        <div className='gridItem'>
+      <div className="gridContainer">
+        <div className="gridItem">
           <h2>Review Your Order</h2>
           <table>
             <thead>
@@ -107,40 +107,40 @@ function Cart() {
             <tbody>
               {cartItems.map(item => (
                 <tr key={item.id}>
-                  <td><img className='cartImage' src={item.image} alt={item.shoe} /></td>
+                  <td><img className="cartImage" src={item.image} alt={item.shoe} /></td>
                   <td>{item.shoe}</td>
                   <td>${item.price}</td>
                   <td>
-                    <button className='quantityButton' size={25} onClick={() => decrementQuantity(item.id)}>-</button>
+                    <button className="quantityButton" size={25} onClick={() => decrementQuantity(item.id)}>-</button>
                     {item.quantity}
-                    <button className='quantityButton' size={25} onClick={() => incrementQuantity(item.id)}>+ </button>
+                    <button className="quantityButton" size={25} onClick={() => incrementQuantity(item.id)}>+ </button>
                   </td>
                   <td>{"$" + (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2)}</td>
-                  <td><IoCloseSharp className='deleteItemIcon' icon="fa-regular fa-x" size={25} onClick={() => deleteCartItem(item.id)} /></td>
+                  <td><IoCloseSharp className="deleteItemIcon" icon="fa-regular fa-x" size={25} onClick={() => deleteCartItem(item.id)} /></td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <div className='gridItem2'>
-          <div className='orderSummary'>
+        <div className="gridItem2">
+          <div className="orderSummary">
             <h2>Summary</h2>
             <hr></hr>
             <div class="summaryRow">
               <p>Subtotal:</p>
-              <p className='orderSummaryTotal'>${calculateTotal()}</p>
+              <p className="orderSummaryTotal">${calculateTotal()}</p>
             </div>
             <div class="summaryRow">
               <p>Tax:</p>
-              <p className='orderSummaryTotal'>${(calculateTotal() * 0.13).toFixed(2)}</p>
+              <p className="orderSummaryTotal">${(calculateTotal() * 0.13).toFixed(2)}</p>
             </div>
             <div class="summaryRow">
               <p>Grand Total:</p>
-              <p className='orderSummaryTotal'>${(calculateTotal() * 1.13).toFixed(2)}</p>
+              <p className="orderSummaryTotal">${(calculateTotal() * 1.13).toFixed(2)}</p>
             </div>
             <div class="summaryRow">
-              <Link to='/checkout'>
-                <button className='checkoutButton'>Checkout</button>
+              <Link to="/checkout">
+                <button className="checkoutButton">Checkout</button>
               </Link>
             </div>
           </div>

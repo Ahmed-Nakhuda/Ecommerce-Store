@@ -1,34 +1,23 @@
-/*
-npm run dev
-*/
+/* npm run dev */
 
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(':memory:');;
-
-// create an express instance to define our server
 const app = express();
-
-// middleware to parse JSON data
 app.use(express.json());
-
-
-// allows you to use form data in insomnia
 app.use(express.urlencoded({ extended: false }));
-
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
 
-// startup a collection of data to manage
-db.serialize(function () {
 
+db.serialize(function () {
 
   db.run("DROP TABLE IF EXISTS Cart");
   db.run("CREATE TABLE Cart (image TEXT, shoe TEXT, price REAL, quantity INTEGER DEFAULT 1)");
 });
 
 
-// get all products
+// Get all products
 app.get("/api", (req, res) => {
   db.all("SELECT rowid as id, image, shoe, price, quantity FROM Cart", (err, results) => {
     if (err) {
@@ -42,7 +31,7 @@ app.get("/api", (req, res) => {
 });
 
 
-// add a product
+// Add a product
 app.post("/api", (req, res) => {
   const { image, shoe, price, quantity } = req.body;
   
@@ -80,7 +69,7 @@ app.post("/api", (req, res) => {
 });
 
 
-// delete a product
+// Delete a product
 app.delete("/api/:id", (req, res) => {
   const { id } = req.params;
   db.run("DELETE FROM Cart WHERE rowid = ?", id, (err) => {
@@ -94,7 +83,7 @@ app.delete("/api/:id", (req, res) => {
 });
 
 
-// run the server
+// Start the server and listen for incoming HTTP requests on port 3001
 const server = app.listen(3001, function () {
   console.log("Server listening on port 3001!")
 });
