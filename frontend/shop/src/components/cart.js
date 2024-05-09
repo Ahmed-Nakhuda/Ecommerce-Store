@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./style-sheets/cart.css";
 import { IoCloseSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import "./style-sheets/cart.css";
 
 function Cart() {
 
@@ -91,9 +91,9 @@ function Cart() {
 
   return (
     <div>
-      <div className="gridContainer">
-        <div className="gridItem">
-          <h2>Review Your Order</h2>
+      <div id="gridContainer">
+        <div id="gridItem">
+          <h2 id="reviewHeading">Review Your Order</h2>
           <table>
             <thead>
               <tr>
@@ -107,24 +107,24 @@ function Cart() {
             <tbody>
               {cartItems.map(item => (
                 <tr key={item.id}>
-                  <td><img className="cartImage" src={item.image} alt={item.shoe} /></td>
+                  <td><img src={item.image} alt={item.shoe} /></td>
                   <td>{item.shoe}</td>
                   <td>${item.price}</td>
                   <td>
-                    <button className="quantityButton" size={25} onClick={() => decrementQuantity(item.id)}>-</button>
+                    <button id="quantityButton" size={25} onClick={() => decrementQuantity(item.id)}>-</button>
                     {item.quantity}
                     <button className="quantityButton" size={25} onClick={() => incrementQuantity(item.id)}>+ </button>
                   </td>
                   <td>{"$" + (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2)}</td>
-                  <td><IoCloseSharp className="deleteItemIcon" icon="fa-regular fa-x" size={25} onClick={() => deleteCartItem(item.id)} /></td>
+                  <td><IoCloseSharp id="deleteItemIcon" icon="fa-regular fa-x" size={25} onClick={() => deleteCartItem(item.id)} /></td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <div className="gridItem2">
-          <div className="orderSummary">
-            <h2>Summary</h2>
+        <div id="gridItem2">
+          <div id="orderSummary">
+            <h2 id="summaryHeading">Summary</h2>
             <hr></hr>
             <div class="summaryRow">
               <p>Subtotal:</p>
@@ -140,7 +140,7 @@ function Cart() {
             </div>
             <div class="summaryRow">
               <Link to="/checkout">
-                <button className="checkoutButton">Checkout</button>
+                <button id="checkoutButton">Checkout</button>
               </Link>
             </div>
           </div>

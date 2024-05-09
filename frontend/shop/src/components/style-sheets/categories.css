@@ -2,6 +2,7 @@
 
 .cardContainer {
     display: flex;
+    justify-content: center;
 }
 
 .cardContainer>.card {
@@ -14,10 +15,6 @@
     background-color: #eeeeee;
     border-radius: 10px;
     font-weight: bold;
-}
-
-.cardContainer>.firstCard {
-    margin-left: 25%;
 }
 
 .addToCartButton {
@@ -35,16 +32,12 @@
     background-color: #00970a;
 }
 
-.card:first-child {
-    margin-left: 18%;
-}
-
-.categoryContainer {
+#categoryContainer {
     padding-bottom: 2%;
     margin-top: 2%;
 }
 
-.p {
+.shoeDescription, .shoePrice {
     margin: 2%;
 }
 
@@ -54,13 +47,10 @@
     .cardContainer {
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
 
     .card {
-        margin-left: 25%;
-    }
-
-    .card:first-child {
         margin-left: 25%;
     }
 }

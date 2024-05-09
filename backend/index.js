@@ -1,23 +1,26 @@
-/* npm run dev */
-
+// Use the express module and create a new sqlite3 database in memory 
 const express = require("express");
+const app = express();
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(':memory:');;
-const app = express();
+
+// Middleware to parse the request body as JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Enable CORS for all origins
 const cors = require('cors');
 app.use(cors({ origin: '*' }));
 
 
-db.serialize(function () {
-
+// Create a new table
+db.serialize(() => {
   db.run("DROP TABLE IF EXISTS Cart");
   db.run("CREATE TABLE Cart (image TEXT, shoe TEXT, price REAL, quantity INTEGER DEFAULT 1)");
 });
 
 
-// Get all products
+// Get all shoes
 app.get("/api", (req, res) => {
   db.all("SELECT rowid as id, image, shoe, price, quantity FROM Cart", (err, results) => {
     if (err) {
@@ -31,7 +34,7 @@ app.get("/api", (req, res) => {
 });
 
 
-// Add a product
+// Add a shoe
 app.post("/api", (req, res) => {
   const { image, shoe, price, quantity } = req.body;
   
@@ -69,7 +72,7 @@ app.post("/api", (req, res) => {
 });
 
 
-// Delete a product
+// Delete a shoe
 app.delete("/api/:id", (req, res) => {
   const { id } = req.params;
   db.run("DELETE FROM Cart WHERE rowid = ?", id, (err) => {

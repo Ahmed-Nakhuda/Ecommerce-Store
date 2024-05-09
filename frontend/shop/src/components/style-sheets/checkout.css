@@ -1,28 +1,36 @@
+/* Accordion */
+
 .accordion {
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 5%;
 }
 
-#checkoutForm .formGroup .textbox {
+
+/* Form Groups */
+
+.formGroup {
+    margin-top: 2%;
+}
+
+.formGroup .textbox {
     width: 50%;
     margin-left: 10%;
     margin-bottom: 2%;
 }
 
-#checkoutForm .formGroup .textbox {
+.formGroup .textbox {
     margin-left: 10%;
     margin-bottom: 2%;
 }
 
-#checkoutForm .formGroup {
-    margin-top: 2%;
-}
 
-#firstName, #lastName {
+/* Labels */
+
+#firstName,
+#lastName {
     margin-left: 4.8%;
 }
-
 
 #address {
     margin-left: 7.8%;
@@ -33,11 +41,11 @@
 }
 
 #city {
-    margin-left: 13%;
+    margin-left: 12%;
 }
 
 #province {
-    margin-left: 8%;
+    margin-left: 6.8%;
 }
 
 #cardNumber {
@@ -56,19 +64,30 @@
     margin-left: 10%;
 }
 
-#checkoutForm .formGroup .securityCodeTextbox {
+.formGroup .securityCodeTextbox {
     width: 15%;
     margin-left: 10%;
     margin-bottom: 2%;
 }
 
-
-#checkoutForm .formGroup #city .citySelect {
-   width: 50px;
+#checkoutForm .formGroup .selectContainer {
+    display: flex;
 }
 
-#checkoutForm .formGroup .selectContainer{
-   display: flex;
+
+/* Buttons */
+
+#continueButton {
+    margin-top: 4%;
+    margin-bottom: 2%;
+    margin-left: 35%;
+    padding: 2%;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #00b006;
+    color: white;
 }
 
 #placeOrderButton {
@@ -79,20 +98,78 @@
     border-radius: 10px;
     font-size: 15px;
     cursor: pointer;
-    /* background-color: #0ac511; */
     font-weight: bold;
-    color: black;
+    background-color: #29bc2e;
+    color: white;
     margin-left: 43%;
 }
 
+#continueButton:hover,
+#placeOrderButton:hover {
+    background-color: #008509;
+}
 
-#continueButton {
-    margin-top: 4%;
-    margin-bottom: 2%;
-    padding: 2%;
-    border-radius: 10px;
-    font-size: 15px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: 35%;
+#errorMessage {
+    color: red;
+    margin-left: 34%;
+}
+
+#placeOrderErrorMessage {
+    color: red;
+    margin-left: 36%;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1000px) {
+    .accordion {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .formGroup .textbox,
+    .datePicker {
+        width: 75%;
+        margin-bottom: 2%;
+    }
+
+    .formGroup {
+        margin-top: 2%;
+    }
+
+    #firstName,
+    #lastName,
+    #email,
+    #address,
+    #city,
+    #province,
+    #cardNumber,
+    #nameOnCard,
+    #expirationDate,
+    #securityCode {
+        margin-left: 0%;
+    }
+
+    .formGroup .textbox {
+        margin-left: 0%;
+        margin-bottom: 2%;
+        margin-right: 100%;
+    }
+
+    .formGroup .datePicker {
+        margin-left: 0%;
+        margin-bottom: 2%;
+        margin-right: 100%;
+    }
+
+    .formGroup .securityCodeTextbox {
+        margin-left: 0%;
+        margin-bottom: 2%;
+        margin-right: 100%;
+    }
+
+    .formGroup .securityCodeTextbox {
+        width: 25%;
+    }
+
 }

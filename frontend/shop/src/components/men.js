@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios";
-import "./style-sheets/categories.css";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
+import "./style-sheets/categories.css";
+
 
 function Men() {
-
+    // State to keep track of hover states for each card
     const [hoverStates, setHoverStates] = useState([false, false, false]);
 
+    // Function to handle mouse enter event
     const handleMouseEnter = (index) => {
         const updatedHoverStates = [...hoverStates];
         updatedHoverStates[index] = true;
         setHoverStates(updatedHoverStates);
     };
 
+    // Function to handle mouse leave event
     const handleMouseLeave = (index) => {
         const updatedHoverStates = [...hoverStates];
         updatedHoverStates[index] = false;
@@ -30,14 +33,30 @@ function Men() {
                 console.error("Error adding to cart:", error);
             });
 
-        // Show notification
+        // Show the notification
         toast.success("Item added to cart!");
 
     };
 
     // Data for shoes
-    const images = ["/images/men/dunk.png", "/images/men/ultraboost.png", "/images/men/jordanWhiteGreen.png", "/images/men/airmax.png", "images/men/newBalance.png", "images/men/underArmour.png"];
-    const prices = ["149.99", "259.99", "234.99", "169.99", "119.99", "159.99"];
+    const images = [
+        "/images/men/dunk.png",
+        "/images/men/ultraboost.png",
+        "/images/men/jordanWhiteGreen.png",
+        "/images/men/airmax.png",
+        "images/men/newBalance.png",
+        "images/men/underArmour.png"
+    ];
+    
+    const prices = [
+        "149.99",
+        "259.99",
+        "234.99",
+        "169.99",
+        "119.99",
+        "159.99"
+    ];
+
     const descriptions = [
         "Nike Dunk Low Retro White / Black - White",
         "Adidas Ultraboost 1.0 Aluminium / Wonder Beige - Olive Strata",
@@ -45,12 +64,14 @@ function Men() {
         "Nike Air Max 90 Black / University Blue",
         "New Balance ML574EVG Grey / White",
         "Under Armour Flow Velociti SE BATIK / Beta"];
+   
     const quantity = 1;
 
     return (
-        <div className="categoryContainer">
+        <div id="categoryContainer">
             <ToastContainer />
             <div className="cardContainer">
+                {/* Display the first three cards */}
                 {[0, 1, 2].map((index) => (
                     <div
                         key={index}
@@ -58,13 +79,17 @@ function Men() {
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={() => handleMouseLeave(index)}
                     >
-                        <img src={images[index]} alt="Featured Product" />
+                        <img src={images[index]} alt="shoe" />
+                
+                        {/* Display the description and price when not hovered */}
                         {!hoverStates[index] && (
                             <>
-                                <p className="p">{descriptions[index]}</p>
-                                <p className="p">${prices[index]}</p>
+                                <p className="shoeDescription">{descriptions[index]}</p>
+                                <p className="shoePrice">${prices[index]}</p>
                             </>
                         )}
+                
+                        {/* Display the "Add to Cart" button when hovered */}
                         {hoverStates[index] && (
                             <button onClick={() => handleAddToCart(images[index], descriptions[index], prices[index], quantity)} className="addToCartButton">
                                 Add to Cart
@@ -85,8 +110,8 @@ function Men() {
                         <img src={images[index]} alt="Featured Product" />
                         {!hoverStates[index] && (
                             <>
-                                <p className="p">{descriptions[index]}</p>
-                                <p className="p">${prices[index]}</p>
+                                <p className="shoeDescription">{descriptions[index]}</p>
+                                <p className="shoePrice">${prices[index]}</p>
                             </>
                         )}
                         {hoverStates[index] && (

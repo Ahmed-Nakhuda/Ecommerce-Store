@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios";
-import "./style-sheets/categories.css";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
+import "./style-sheets/categories.css";
+
 
 function Kids() {
+    // State to keep track of hover states for each card
     const [hoverStates, setHoverStates] = useState([false, false, false]);
 
+    // Function to handle mouse enter event
     const handleMouseEnter = (index) => {
         const updatedHoverStates = [...hoverStates];
         updatedHoverStates[index] = true;
         setHoverStates(updatedHoverStates);
     };
 
+    // Function to handle mouse leave event
     const handleMouseLeave = (index) => {
         const updatedHoverStates = [...hoverStates];
         updatedHoverStates[index] = false;
@@ -30,7 +34,7 @@ function Kids() {
                 console.error("Error adding to cart:", error);
             });
 
-        // Show notification
+        // Show the notification
         toast.success("Item added to cart!");
     };
 
@@ -43,7 +47,15 @@ function Kids() {
         "images/kids/gazelle.png",
         "images/kids/puma.png",
     ];
-    const prices = ["64.99", "124.99", "89.99", "149.99", "109.99", "84.99"];
+
+    const prices = [
+        "64.99", 
+        "124.99", 
+        "89.99", 
+        "149.99", 
+        "109.99", 
+        "84.99"];
+
     const descriptions = [
         "Jordan Max Aura 5 TD Black / University Red - Black",
         "Under Armour Curry 11 GS Champion Mindset",
@@ -52,12 +64,14 @@ function Kids() {
         "Adidas Originals Juniors Gazelle Pink Tint / Cloud White",
         "Puma Juniors CA Pro Classic / Puma White",
     ];
+    
     const quantity = 1;
 
     return (
-        <div className="categoryContainer">
+        <div id="categoryContainer">
             <ToastContainer />
             <div className="cardContainer">
+                {/* Display the first three cards */}
                 {[0, 1, 2].map((index) => (
                     <div
                         key={index}
@@ -65,25 +79,19 @@ function Kids() {
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={() => handleMouseLeave(index)}
                     >
-                        <img src={images[index]} alt="Featured Product" />
+                        <img src={images[index]} alt="shoe" />
+                      
+                        {/* Display the description and price when not hovered */}
                         {!hoverStates[index] && (
                             <>
-                                <p className="p">{descriptions[index]}</p>
-                                <p className="p">${prices[index]}</p>
+                                <p className="shoeDescription">{descriptions[index]}</p>
+                                <p className="shoePrice">${prices[index]}</p>
                             </>
                         )}
+                        
+                        {/* Display the "Add to Cart" button when hovered */}
                         {hoverStates[index] && (
-                            <button
-                                onClick={() =>
-                                    handleAddToCart(
-                                        images[index],
-                                        descriptions[index],
-                                        prices[index],
-                                        quantity
-                                    )
-                                }
-                                className="addToCartButton"
-                            >
+                            <button onClick={() => handleAddToCart(images[index], descriptions[index], prices[index], quantity)} className="addToCartButton">
                                 Add to Cart
                             </button>
                         )}
@@ -102,8 +110,8 @@ function Kids() {
                         <img src={images[index]} alt="Featured Product" />
                         {!hoverStates[index] && (
                             <>
-                                <p className="p">{descriptions[index]}</p>
-                                <p className="p">${prices[index]}</p>
+                                <p className="shoeDescription">{descriptions[index]}</p>
+                                <p className="shoePrice">${prices[index]}</p>
                             </>
                         )}
                         {hoverStates[index] && (

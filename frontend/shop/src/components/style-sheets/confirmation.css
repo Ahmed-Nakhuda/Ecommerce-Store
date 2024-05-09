@@ -1,9 +1,9 @@
-#confirmationContainer {
-    text-align: center;
-}
-
 h1 {
     margin-top: 2%;
+}
+
+#confirmationContainer {
+    text-align: center;
 }
 
 #checkmark {

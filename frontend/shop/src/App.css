@@ -39,9 +39,10 @@ html {
     justify-content: flex-end;
 }
 
+
 /* Footer */
 
-.container {
+.footerContainer {
     max-width: 1170px;
     margin: auto;
 }
@@ -96,33 +97,30 @@ ul {
     font-weight: 300;
     color: #ffffff;
     display: block;
-    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .footerCol ul li a:hover {
     color: #ffffff;
-    padding-left: 8px;
-}
-
-.footerCol .sociaLinks a:hover {
-    color: #24262b;
-    background-color: #ffffff;
+    cursor: pointer;
 }
 
 #facebook {
     margin-right: 10px;
 }
 
+
 /* Media Queries */
+
 @media(max-width: 767px) {
-    .footer-col {
+    .footerCol {
         width: 50%;
         margin-bottom: 30px;
     }
 }
 
 @media(max-width: 574px) {
-    .footer-col {
+    .footerCol {
         width: 100%;
     }
 }

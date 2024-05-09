@@ -7,7 +7,7 @@ function Confirmation() {
             <p>Your order has been placed.
                You will receive an order confirmation email shortly.
             </p>
-            <img id="checkmark" src="images/check.png" alt="confirmation checkmark" className="confirmationImage" />
+            <img id="checkmark" src="images/check.png" alt="confirmation checkmark" />
         </div>
     );
 }

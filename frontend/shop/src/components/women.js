@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import axios from "axios";
-import "./style-sheets/categories.css";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
+import "./style-sheets/categories.css";
 
 function Women() {
+    // State to keep track of hover states for each card
     const [hoverStates, setHoverStates] = useState([false, false, false]);
 
+    // Function to handle mouse enter event
     const handleMouseEnter = (index) => {
         const updatedHoverStates = [...hoverStates];
         updatedHoverStates[index] = true;
         setHoverStates(updatedHoverStates);
     };
 
+    // Function to handle mouse leave event
     const handleMouseLeave = (index) => {
         const updatedHoverStates = [...hoverStates];
         updatedHoverStates[index] = false;
@@ -30,7 +33,7 @@ function Women() {
                 console.error("Error adding to cart:", error);
             });
 
-        // Show notification
+        // Show the notification
         toast.success("Item added to cart!");
     };
 
@@ -43,6 +46,7 @@ function Women() {
         "images/women/converse.png",
         "images/women/timberland.png",
     ];
+
     const prices = [
         "149.99",
         "149.99",
@@ -51,6 +55,7 @@ function Women() {
         "74.99",
         "159.99",
     ];
+    
     const descriptions = [
         "Nike Dunk Low Valentine's Day White / Team Red - Adobe",
         "New Balance BBW500TB Sea Salt / Linen - Stoneware",
@@ -59,12 +64,14 @@ function Women() {
         "Converse Chuck Taylor All Star Desert Color Midnight Clover",
         "Timberland 6 Inch Lace Up Waterproof Boot / Black Nu",
     ];
+    
     const quantity = 1;
 
     return (
-        <div className="categoryContainer">
+        <div id="categoryContainer">
             <ToastContainer />
             <div className="cardContainer">
+                {/* Display the first three cards */}
                 {[0, 1, 2].map((index) => (
                     <div
                         key={index}
@@ -72,25 +79,19 @@ function Women() {
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={() => handleMouseLeave(index)}
                     >
-                        <img src={images[index]} alt="Featured Product" />
+                        <img src={images[index]} alt="shoe" />
+               
+                        {/* Display the description and price when not hovered */}
                         {!hoverStates[index] && (
                             <>
-                                <p className="p">{descriptions[index]}</p>
-                                <p className="p">${prices[index]}</p>
+                                <p className="shoeDescription">{descriptions[index]}</p>
+                                <p className="shoePrice">${prices[index]}</p>
                             </>
                         )}
+               
+                        {/* Display the "Add to Cart" button when hovered */}
                         {hoverStates[index] && (
-                            <button
-                                onClick={() =>
-                                    handleAddToCart(
-                                        images[index],
-                                        descriptions[index],
-                                        prices[index],
-                                        quantity
-                                    )
-                                }
-                                className="addToCartButton"
-                            >
+                            <button onClick={() => handleAddToCart(images[index], descriptions[index], prices[index], quantity)} className="addToCartButton">
                                 Add to Cart
                             </button>
                         )}
@@ -109,8 +110,8 @@ function Women() {
                         <img src={images[index]} alt="Featured Product" />
                         {!hoverStates[index] && (
                             <>
-                                <p className="p">{descriptions[index]}</p>
-                                <p className="p">{prices[index]}</p>
+                                <p className="shoeDescription">{descriptions[index]}</p>
+                                <p className="shoePrice">{prices[index]}</p>
                             </>
                         )}
                         {hoverStates[index] && (
