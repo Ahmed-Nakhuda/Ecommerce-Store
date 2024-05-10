@@ -42,7 +42,7 @@ function Home() {
           </div>
         </div>
         <div className="categoryCard">
-          <img src="images/kids/jordanUniversityRedBlack.png" alt="kid's shoes" />
+          <img src="images/kids/curry.png" alt="kid's shoes" />
           <div className="shoeInfo">
             KID'S SHOES
             <p />

@@ -24,22 +24,21 @@ function Checkout() {
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
     const [province, setProvince] = useState("");
-
-    const [nextButtonEnabled, setNextButtonEnabled] = useState(false);
-    const [buttonHidden, setButtonHidden] = useState(false);
-    const [paymentAccordionDisabled, setPaymentAccordionDisabled] = useState(false);
-    const [paymentAccordionExpanded, setPaymentAccordionExpanded] = useState(false);
-
     const [cardNumber, setCardNumber] = useState("");
     const [nameOnCard, setNameOnCard] = useState("");
     const [expirationDate, setExpirationDate] = useState(null);
     const [securityCode, setSecurityCode] = useState("");
+
+    const [buttonHidden, setButtonHidden] = useState(false);
+    const [continueButtonEnabled, setContinueButtonEnabled] = useState(false);
     const [placeOrderButtonEnabled, setPlaceOrderButtonEnabled] = useState(false);
+    const [paymentAccordionDisabled, setPaymentAccordionDisabled] = useState(false);
+    const [paymentAccordionExpanded, setPaymentAccordionExpanded] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
     // Enable next button if all shipping info fields are filled
     useEffect(() => {
-        setNextButtonEnabled(
+        setContinueButtonEnabled(
             firstName !== "" &&
             lastName !== "" &&
             email !== "" &&
@@ -234,7 +233,7 @@ function Checkout() {
                                     type="button"
                                     id="continueButton"
                                     onClick={() => {
-                                        if (!nextButtonEnabled) {
+                                        if (!continueButtonEnabled) {
                                             setErrorMessage("All fields must be filled out");
                                         } else {
                                             setErrorMessage("");

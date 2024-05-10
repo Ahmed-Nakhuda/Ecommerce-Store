@@ -23,7 +23,7 @@ table img {
     height: 200px;
 }
 
-#quantityButton {
+.quantityButton {
     background-color: white;
     border: none;
     font-size: 15px;
@@ -74,7 +74,7 @@ table img {
 }
 
 #checkoutButton {
-    background-color: #29bc2e;
+    background-color: #02c308;
     font-weight: bold;
     padding: 10px;
     font-size: 15px;
@@ -86,7 +86,7 @@ table img {
 }
 
 #checkoutButton:hover {
-    background-color: #00970a;
+    background-color: #019c0c;
 }
 
 .checkoutButton a {
@@ -96,14 +96,7 @@ table img {
 
 /* Media Queries */
 
-
-@media screen and (max-width: 1400px) {
-    #checkoutButton {
-        margin-left: 90%;
-    }
-}
-
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1450px) {
     table {
         font-size: 18px;
     }

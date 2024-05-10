@@ -40,7 +40,7 @@ function Kids() {
 
     // Data for shoes
     const images = [
-        "/images/kids/jordanUniversityRedBlack.png",
+        "/images/kids/jordan.png",
         "/images/kids/curry.png",
         "/images/kids/af1Light.png",
         "/images/kids/airmax270.png",

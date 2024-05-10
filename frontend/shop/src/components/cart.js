@@ -111,9 +111,9 @@ function Cart() {
                   <td>{item.shoe}</td>
                   <td>${item.price}</td>
                   <td>
-                    <button id="quantityButton" size={25} onClick={() => decrementQuantity(item.id)}>-</button>
+                    <button className="quantityButton" size={25} onClick={() => decrementQuantity(item.id)}>-</button>
                     {item.quantity}
-                    <button className="quantityButton" size={25} onClick={() => incrementQuantity(item.id)}>+ </button>
+                    <button className="quantityButton" size={25} onClick={() => incrementQuantity(item.id)}>+</button>
                   </td>
                   <td>{"$" + (parseFloat(item.price) * parseFloat(item.quantity)).toFixed(2)}</td>
                   <td><IoCloseSharp id="deleteItemIcon" icon="fa-regular fa-x" size={25} onClick={() => deleteCartItem(item.id)} /></td>
