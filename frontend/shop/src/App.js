@@ -10,7 +10,6 @@ import Confirmation from './components/confirmation';
 import { Routes, Route, NavLink } from "react-router-dom";
 import { IoBagCheckOutline } from "react-icons/io5";
 
-
 function App() {
   return (
     <div>
