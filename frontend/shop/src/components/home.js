@@ -6,7 +6,7 @@ function Home() {
   const handleExploreNowClick = () => {
     const targetElement = document.getElementById("separator");
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth", block: "start"});
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -24,31 +24,43 @@ function Home() {
       <hr id="separator" />
       <h2 id="featured">FEATURED</h2>
 
-      <div className="categories">
+      <div id="categories">
+
         <div className="categoryCard">
-          <img src="images/men/dunk.png" alt="men's shoes" />
-          <div className="shoeInfo">
-            MEN'S SHOES
-            <p />
-            <Link to="/men" className="shopNowButton">Explore</Link>
-          </div>
+          <Link className="link" to="/men">
+            <img src="images/men/dunk.png" alt="men's shoes" />
+            <div className="shoeInfo">
+              MEN'S SHOES
+              <p />
+              <button className="shopNowButton">Explore</button>
+            </div>
+          </Link>
         </div>
+
+
         <div className="categoryCard">
-          <img src="images/women/adidasPuttyMauve.png" alt="women's shoes" />
-          <div className="shoeInfo">
-            WOMEN'S SHOES
-            <p />
-            <Link to="/women" className="shopNowButton">Explore</Link>
-          </div>
+          <Link className="link" to="/women">
+            <img src="images/women/adidasPuttyMauve.png" alt="women's shoes" />
+            <div className="shoeInfo">
+              WOMEN'S SHOES
+              <p />
+              <button to="/women" className="shopNowButton">Explore</button>
+            </div>
+          </Link>
         </div>
+
+
         <div className="categoryCard">
-          <img src="images/kids/curry.png" alt="kid's shoes" />
-          <div className="shoeInfo">
-            KID'S SHOES
-            <p />
-            <Link to="/kids" className="shopNowButton">Explore</Link>
-          </div>
+          <Link className="link" to="/kids">
+            <img src="images/kids/curry.png" alt="kid's shoes" />
+            <div className="shoeInfo">
+              KID'S SHOES
+              <p />
+              <button className="shopNowButton">Explore</button>
+            </div>
+          </Link>
         </div>
+
       </div>
 
       <div id="imageGallery">
@@ -56,8 +68,8 @@ function Home() {
           <Link to="/men">
             <div className="gallery">
               <img src="images/chameleon.png" alt="jordan chameleon shoes" />
-                <p className="shoeBrand">JORDANS</p>
-                <p>SHOP NOW</p>
+              <p className="shoeBrand">JORDANS</p>
+              <p>SHOP NOW</p>
             </div>
           </Link>
         </div>
@@ -65,8 +77,8 @@ function Home() {
           <Link to="/men">
             <div className="gallery">
               <img src="images/adidas.png" alt="adidas shoes" />
-                <p className="shoeBrand">ADIDAS</p>
-                <p>SHOP NOW</p>
+              <p className="shoeBrand">ADIDAS</p>
+              <p>SHOP NOW</p>
             </div>
           </Link>
         </div>

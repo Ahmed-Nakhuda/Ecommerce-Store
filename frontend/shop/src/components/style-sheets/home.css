@@ -62,6 +62,7 @@
     margin-left: 48.5%;
 }
 
+
 /* Categories */
 
 .shoeInfo {
@@ -76,14 +77,14 @@
 
 .shopNowButton {
     display: inline-block;
-    padding: 5px;
+    padding: 10px;
     background-color: white;
-    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
     list-style: none;
     text-decoration: none;
     margin-top: 1%;
+    width: 100px;
 }
 
 .shopNowButton:visited {
@@ -94,7 +95,7 @@
     color: black;
 }
 
-.categories {
+#categories {
     display: flex;
     justify-content: center;
 }
@@ -103,51 +104,8 @@
     margin-right: 2%;
 }
 
-
-
-/* Subscribe */
-
-.subscribe {
-    display: flex;
-    background-color: black;
-    color: white;
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 5%;
-    border-radius: 10px;
-    height: 250px;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-.subscribeColumn1 {
-    flex: 2;
-    padding: 20px;
-    margin-top: 2%;
-}
-
-.subscribeColumn2 {
-    flex: 1;
-    padding: 20px;
-    margin-top: 4%;
-}
-
-.subscribeButton {
-    padding: 15px 25px;
-    background-color: red;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 1.5%;
-}
-
-.subscribeTextField {
-    padding: 4%;
-    border-radius: 10px;
-    margin-top: 2%;
-    font-weight: bold;
+.link {
+    text-decoration: none;
 }
 
 
@@ -196,11 +154,57 @@
     padding-bottom: 5px;
 }
 
-
-
 .responsive:first-child {
     margin-left: 15%;
 }
+
+
+
+/* Subscribe */
+
+.subscribe {
+    display: flex;
+    background-color: black;
+    color: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    border-radius: 10px;
+    height: 250px;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.subscribeColumn1 {
+    flex: 2;
+    padding: 20px;
+    margin-top: 2%;
+}
+
+.subscribeColumn2 {
+    flex: 1;
+    padding: 20px;
+    margin-top: 4%;
+}
+
+.subscribeButton {
+    padding: 15px 25px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1.5%;
+}
+
+.subscribeTextField {
+    padding: 4%;
+    border-radius: 10px;
+    margin-top: 2%;
+    font-weight: bold;
+}
+
 
 /* Media Queries */
 
@@ -239,7 +243,7 @@
 
 @media only screen and (max-width: 700px) {
 
-    .categories {
+    #categories {
         display: flex;
         flex-direction: column;
     }
@@ -261,6 +265,10 @@
     .categoryCard {
         margin-left: 25%;
         margin-top: 5%;
+    }
+
+    .subscribeColumn1 {
+        font-size: medium;
     }
 } 
 
